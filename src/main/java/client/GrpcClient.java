@@ -6,9 +6,11 @@ import proto.ComputeFunctionGrpc;
 import proto.Protofile;
 
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 public class GrpcClient {
 
+    private static final Logger logger=Logger.getLogger(GrpcClient.class.getName());
 
     public static void main(String[]args)throws InterruptedException{
 
@@ -18,7 +20,7 @@ public class GrpcClient {
 
         for(int x=0; x<100; x++){
             stub.compute(Protofile.DataRequest.newBuilder().setX(x).build());
-            System.out.println("Sent "+x);
+            logger.info("Value of x sent : "+x);
         }
         channel.shutdown();
     }
