@@ -1,0 +1,16 @@
+
+syntax="proto3";
+
+package proto;
+
+message DataRequest{
+  double x=1;
+}
+
+message DataResponse{
+  double y=1;
+}
+
+service ComputeFunction{
+  rpc compute(DataRequest)returns (DataResponse);
+}
